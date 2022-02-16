@@ -1,4 +1,4 @@
-package ru.zenicko.restbackend.examples;
+package ru.zenicko.restbackend.example;
 
 /***
  *
