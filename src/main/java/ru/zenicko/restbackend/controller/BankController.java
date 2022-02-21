@@ -1,5 +1,7 @@
 package ru.zenicko.restbackend.controller;
 
+import io.swagger.annotations.ApiOperation;
+import org.springframework.context.annotation.Description;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +17,8 @@ import java.util.List;
 @RestController
 public class BankController {
 
-
     @PostMapping("user/login")
+    @ApiOperation("Get the user info")
     public UserInfo doLogin(@RequestBody LoginInfo loginInfo) {
         if (RestBackendApplication.dataBase.isExistUser(loginInfo.getUserName())) {
             return RestBackendApplication.dataBase.getUserInfoLastLogin(loginInfo.getUserName());
@@ -26,11 +28,13 @@ public class BankController {
     }
 
     @GetMapping("/users")
+    @ApiOperation("Get the info about all users")
     public List<UserInfo> getAllUsers() {
         return RestBackendApplication.dataBase.getAllUserInfo();
     }
 
     @PostMapping("/user")
+    @ApiOperation("Add a new user")
     public UserInfo addNewUser(@RequestBody LoginInfo loginInfo) {
         if (!RestBackendApplication.dataBase.isExistUser(loginInfo.getUserName())) {
             RestBackendApplication.dataBase.addRow(loginInfo);

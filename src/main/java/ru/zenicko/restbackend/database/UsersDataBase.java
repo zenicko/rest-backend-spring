@@ -52,8 +52,7 @@ public class UsersDataBase {
 
     public UserInfo getUserInfoLastLogin(String userName) {
         if (users.containsKey(userName)) {
-            // TODO find last login
-            return users.get(userName);
+           return users.get(userName);
         } else {
             return null;
         }
