@@ -2,13 +2,14 @@ package ru.zenicko.restbackend.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.zenicko.restbackend.api.BankApi;
 
 public class BankControllerTests {
 
     @Test
-    @DisplayName("addNewUser test")
-    void shouldBeStatusCode200() {
-        //TODO
+    @DisplayName("Check status code is 201 in handler \"/user\"")
+    void shouldBeStatusCode200() throws InterruptedException {
+        BankApi.createNewUser("nick7", "111");
     }
 
 }
