@@ -2,10 +2,8 @@ package ru.zenicko.restbackend.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Description;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.zenicko.restbackend.RestBackendApplication;
 import ru.zenicko.restbackend.domain.LoginInfo;
 import ru.zenicko.restbackend.domain.UserInfo;
@@ -34,6 +32,7 @@ public class BankController {
     }
 
     @PostMapping("/user")
+    @ResponseStatus(value = HttpStatus.CREATED)
     @ApiOperation("Add a new user")
     public UserInfo addNewUser(@RequestBody LoginInfo loginInfo) {
         if (!RestBackendApplication.dataBase.isExistUser(loginInfo.getUserName())) {
