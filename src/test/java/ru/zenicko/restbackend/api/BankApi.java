@@ -3,10 +3,11 @@ package ru.zenicko.restbackend.api;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 
 public class BankApi {
 
-    public static Response createNewUser(String userName, String password) {
+    public static ValidatableResponse createNewUser(String userName, String password) {
 
         String data1 = "{" +
                 "\"user_name\":\"" + userName + "\"," +
@@ -21,7 +22,6 @@ public class BankApi {
                         .when()
                             .post("http://localhost:8080/user")
                         .then()
-                            .statusCode(201)
-                            .extract().response();
+                            .statusCode(201);
     }
 }

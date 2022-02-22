@@ -1,10 +1,12 @@
 package ru.zenicko.restbackend.tests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.zenicko.restbackend.api.BankApi;
 import ru.zenicko.restbackend.data.DataProvider;
 
+@Disabled("BankControllerTests is replaced by class BankControllerAddNewUserTests")
 public class BankControllerTests {
 
     @Test
