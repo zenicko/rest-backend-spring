@@ -1,2 +1,4 @@
-package ru.zenicko.restbackend.spec;public class Specs {
+package ru.zenicko.restbackend.spec;
+
+public class Specs {
 }
