@@ -23,5 +23,13 @@ public class BankApi {
                             .post("http://localhost:8080/user")
                         .then()
                             .statusCode(201);
+                //@formatter:on
+    }
+
+    public static Response getAllUsers() {
+        //@formatter:off
+        return RestAssured
+                .given()
+                .get("http://localhost:8080/users");
     }
 }
