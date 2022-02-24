@@ -1,7 +1,6 @@
 package ru.zenicko.restbackend.tests;
 
 import io.restassured.response.ValidatableResponse;
-import org.assertj.core.api.Assert;
 import org.assertj.core.api.Assertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -9,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import ru.zenicko.restbackend.api.BankApi;
 import ru.zenicko.restbackend.data.DataProvider;
 import ru.zenicko.restbackend.domain.UserInfo;
-
-import java.util.Date;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
@@ -61,7 +58,7 @@ public class BankControllerAddNewUserTests {
                 .isEqualTo(userName);
         Assertions
                 .assertThat(UserInfo.getLoginDate().getTime())
-                .isLessThan(UserInfo.START_DATE);
+                .isGreaterThan(UserInfo.START_DATE);
     }
 
 }
