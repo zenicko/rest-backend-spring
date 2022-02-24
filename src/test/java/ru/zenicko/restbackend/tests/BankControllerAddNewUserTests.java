@@ -1,11 +1,14 @@
 package ru.zenicko.restbackend.tests;
 
 import io.restassured.response.ValidatableResponse;
+import org.assertj.core.api.Assert;
+import org.assertj.core.api.Assertions;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.zenicko.restbackend.api.BankApi;
 import ru.zenicko.restbackend.data.DataProvider;
+import ru.zenicko.restbackend.domain.UserInfo;
 
 import java.util.Date;
 
@@ -46,5 +49,19 @@ public class BankControllerAddNewUserTests {
         newUser
                 .body("user_name", Matchers.is(userName))
                 .body("login_date", Matchers.is(Matchers.greaterThan(164509812300L)));
+
+        UserInfo UserInfo =
+                newUser
+                        .extract()
+                        .response()
+                        .as(UserInfo.class);
+
+        Assertions
+                .assertThat(UserInfo.getUserName())
+                .isEqualTo(userName);
+        Assertions
+                .assertThat(UserInfo.getLoginDate().getTime())
+                .isLessThan(UserInfo.START_DATE);
     }
+
 }
