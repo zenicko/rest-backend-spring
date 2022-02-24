@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class LoginInfo {
-    final public long START_DATE = 164509812300L;
     private String userName;
     private String password;
 }

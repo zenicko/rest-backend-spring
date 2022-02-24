@@ -15,7 +15,6 @@ import java.util.Date;
 @NoArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserInfo {
-    final public long START_DATE = 164509812300L;
     private String userName;
     private Date loginDate;
 

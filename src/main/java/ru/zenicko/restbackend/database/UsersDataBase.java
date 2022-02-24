@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UsersDataBase {
+    final public static long START_DATE = 164509812300L;
     private HashMap<String, UserInfo> users = new HashMap<>();
 
     public UsersDataBase() {
